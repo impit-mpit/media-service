@@ -11,7 +11,7 @@ type GSQL interface {
 	Update(ctx context.Context, data interface{}) error
 	RawQuery(ctx context.Context, scanner interface{}, query string, args ...interface{}) error
 	UpdateMany(ctx context.Context, data, query interface{}, args ...interface{}) error
-	UpdateOne(ctx context.Context, data, query interface{}, args ...interface{}) error
+	UpdateOne(ctx context.Context, data, query interface{}, value interface{}, args ...interface{}) error
 	BeginFind(ctx context.Context, value interface{}) Find
 	Delete(ctx context.Context, data interface{}, condition interface{}, args ...interface{}) error
 	DeleteByQuery(ctx context.Context, data, query interface{}, args ...interface{}) error

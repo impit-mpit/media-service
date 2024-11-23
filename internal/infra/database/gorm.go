@@ -49,8 +49,8 @@ func (g *GormDB) UpdateMany(ctx context.Context, data, query interface{}, args .
 }
 
 // UpdateOne обновляет одну запись по условию
-func (g *GormDB) UpdateOne(ctx context.Context, data, query interface{}, args ...interface{}) error {
-	result := g.db.WithContext(ctx).Where(query, args...).Updates(data)
+func (g *GormDB) UpdateOne(ctx context.Context, data, query interface{}, value interface{}, args ...interface{}) error {
+	result := g.db.WithContext(ctx).Model(&value).Where(query, args...).Updates(data)
 	if result.Error != nil {
 		return result.Error
 	}

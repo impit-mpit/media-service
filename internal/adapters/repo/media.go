@@ -52,7 +52,7 @@ func (m MediaRepo) Update(ctx context.Context, media entities.Media) error {
 		"updated_date":  time.Now(),
 		"updated_by":    media.UpdatedBy(),
 	}
-	if err := m.db.UpdateOne(ctx, updates, &mediaGORM{ID: media.ID()}); err != nil {
+	if err := m.db.UpdateOne(ctx, updates, &mediaGORM{ID: media.ID()}, &mediaGORM{}); err != nil {
 		fmt.Println(err)
 		return entities.ErrorMediaUpdate
 	}
