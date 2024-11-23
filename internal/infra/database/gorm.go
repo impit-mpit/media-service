@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"neuro-most/template-service/config"
-	"neuro-most/template-service/internal/adapters/repo"
+	"neuro-most/media-service/config"
+	"neuro-most/media-service/internal/adapters/repo"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
