@@ -49,8 +49,6 @@ func (m MediaRepo) Update(ctx context.Context, media entities.Media) error {
 		"video_url":     media.VideoURL(),
 		"thumbnail_url": media.ThumbnailURL(),
 		"description":   media.Description(),
-		"updated_date":  time.Now(),
-		"updated_by":    media.UpdatedBy(),
 	}
 	if err := m.db.UpdateOne(ctx, updates, &mediaGORM{ID: media.ID()}, &mediaGORM{}); err != nil {
 		fmt.Println(err)
