@@ -6,4 +6,4 @@ resources:
 - deployment.yaml
 images:
 - name: ghcr.io/impit-mpit/media-service-master
-  newTag: 2f8dcbe
+  newTag: f068595
