@@ -28,8 +28,29 @@ func (p getAllMediaPresenter) Output(media []entities.Media) []usecase.GetAllMed
 }
 
 func ShortDescription(description string) string {
-	if len(description) > 40 {
-		return description[:40]
+	const maxLength = 40
+
+	if len(description) == 0 {
+		return ""
 	}
-	return description
+
+	runes := []rune(description)
+
+	if len(runes) <= maxLength {
+		return description
+	}
+
+	lastSpace := -1
+	for i := 0; i < maxLength && i < len(runes); i++ {
+		if runes[i] == ' ' {
+			lastSpace = i
+		}
+	}
+
+	cutoff := maxLength
+	if lastSpace != -1 {
+		cutoff = lastSpace
+	}
+
+	return string(runes[:cutoff]) + "..."
 }
