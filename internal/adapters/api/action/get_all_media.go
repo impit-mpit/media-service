@@ -34,7 +34,7 @@ func (a *GetAllMediaAction) Execute(ctx context.Context, input *mediav1.GetMedia
 			Title:            m.Title,
 			VideoUrl:         m.VideoURL,
 			ThumbnailUrl:     m.ThumbnailURL,
-			ShortDescription: m.ShortDescription,
+			ShortDescription: "test",
 		})
 	}
 	return mediaFeed, nil
