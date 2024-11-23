@@ -19,9 +19,17 @@ func (p getAllMediaPresenter) Output(media []entities.Media) []usecase.GetAllMed
 			Title:        m.Title(),
 			VideoURL:     m.VideoURL(),
 			ThumbnailURL: m.ThumbnailURL(),
-			Description:  m.Description(),
+			//short descirption 40 symbols
+			ShortDescription: ShortDescription(m.Description()),
 		})
 	}
 
 	return output
+}
+
+func ShortDescription(description string) string {
+	if len(description) > 40 {
+		return description[:40]
+	}
+	return description
 }

@@ -26,15 +26,15 @@ func (a *GetAllMediaAction) Execute(ctx context.Context, input *mediav1.GetMedia
 	}
 	mediaFeed := &mediav1.GetMediaFeedResponse{
 		Total: int32(total),
-		Media: make([]*mediav1.Media, 0),
+		Media: make([]*mediav1.ShortMedia, 0),
 	}
 	for _, m := range media {
-		mediaFeed.Media = append(mediaFeed.Media, &mediav1.Media{
-			Id:           m.ID,
-			Title:        m.Title,
-			VideoUrl:     m.VideoURL,
-			ThumbnailUrl: m.ThumbnailURL,
-			Description:  m.Description,
+		mediaFeed.Media = append(mediaFeed.Media, &mediav1.ShortMedia{
+			Id:               m.ID,
+			Title:            m.Title,
+			VideoUrl:         m.VideoURL,
+			ThumbnailUrl:     m.ThumbnailURL,
+			ShortDescription: m.ShortDescription,
 		})
 	}
 	return mediaFeed, nil

@@ -16,11 +16,11 @@ type (
 	}
 
 	GetAllMediaOutput struct {
-		ID           int64
-		Title        string
-		VideoURL     string
-		ThumbnailURL string
-		Description  string
+		ID               int64
+		Title            string
+		VideoURL         string
+		ThumbnailURL     string
+		ShortDescription string
 	}
 
 	GetAllMediaPresenter interface {
